@@ -4,6 +4,7 @@ const ContactPage = () => {
   return (
     <>
       <p>ContactPage</p>
+      <h1>Звоните быстрее</h1>
     </>
   );
 };
