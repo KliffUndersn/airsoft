@@ -1,39 +1,42 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+
 export default function MenuAppBar() {
+  const [value, setValue] = React.useState("recents");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Link to="/">
-            <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <HomeIcon />
-            </IconButton>
-          </Link>
-          <Link to="/price">
-            <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <AttachMoneyIcon />
-            </IconButton>
-          </Link>
-          <Link to="/contacts">
-            <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <ContactPhoneIcon />
-            </IconButton>
-          </Link>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            B28 Airsoft
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+      <BottomNavigationAction
+        label="Home"
+        value="home"
+        component={Link}
+        to="/"
+        icon={<HomeIcon />}
+      />
+      <BottomNavigationAction
+        label="Price"
+        value="price"
+        component={Link}
+        to="/price"
+        icon={<AttachMoneyIcon />}
+      />
+      <BottomNavigationAction
+        label="Contacts"
+        value="contacts"
+        component={Link}
+        to="/contacts"
+        icon={<ContactPhoneIcon />}
+      />
+    </BottomNavigation>
   );
 }
