@@ -15,7 +15,7 @@ export default function MenuAppBar() {
   };
 
   return (
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ width: 1 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
         label="Home"
         value="home"
