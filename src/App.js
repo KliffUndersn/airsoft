@@ -5,12 +5,12 @@ import { useEffect } from "react";
 import { fetchToken } from "./redux/auth/auth-selectors";
 
 function App() {
-  const dispatch = useDispatch();
-  const isLoggin = useSelector(fetchToken);
+  // const dispatch = useDispatch();
+  // const isLoggin = useSelector(fetchToken);
 
-  useEffect(() => {
-    isLoggin && dispatch(authOperations.CheckedIsLoginCurrentUser());
-  }, []);
+  // useEffect(() => {
+  //   isLoggin && dispatch(authOperations.CheckedIsLoginCurrentUser());
+  // }, []);
 
   return (
     <div className="App">
